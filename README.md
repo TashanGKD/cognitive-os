@@ -40,6 +40,28 @@
 
 ---
 
+## 核心架构图
+
+### 静态：五层文件结构 ↔ 大脑记忆系统
+
+> 不是比喻——每一层文件对应神经科学中已被实证的记忆类型
+
+![Five-Layer Cognitive Structure](docs/assets/static_layers.png)
+
+---
+
+### 动态：13 个 Skills 如何协同运转
+
+> 系统总览：五大阶段的完整认知生命周期，含 Subagents 隔离节点和 Rules 守门机制
+
+![cognitive-os Complete Cognitive Lifecycle](docs/assets/dynamic_lifecycle.png)
+
+> 模式详表：初始构建（5 种模式）vs 迭代进化（8 种模式），每种操作对应的认知科学依据
+
+![Building vs Evolving Modes](docs/assets/dynamic_modes.png)
+
+---
+
 ## 这是什么
 
 **cognitive-os 解决一个根本问题：**

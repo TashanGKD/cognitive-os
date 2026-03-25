@@ -25,7 +25,29 @@
 
 > 📖 **Deep Dive Article**: [**"Externalizing the Layered Brain: A Neuroscience Deconstruction of an AI Cognitive System"**](docs/article/cognitive-science-deep-dive.md)
 > Step-by-step mapping of each Skill to cognitive science theory, with 10 original diagrams (Piaget assimilation/accommodation, ViolEx contradiction model, Wallas 4-stage incubation, spreading activation…)
-> 📎 [Full HTML version with embedded images (12MB)](docs/article/cognitive-science-deep-dive.html) 13 Skills + 4 Rules + 4 SubAgents that let AI agents **build, maintain, and self-evolve** your cognitive framework — grounded in 50+ years of cognitive science.
+> 📎 [Full HTML version with embedded images (12MB)](docs/article/cognitive-science-deep-dive.html)
+
+---
+
+## Core Architecture Diagrams
+
+### Static: File Layers ↔ Brain Memory Systems
+
+> Not a metaphor — each file layer corresponds to an empirically validated memory type
+
+![Five-Layer Cognitive Structure](docs/assets/static_layers.png)
+
+---
+
+### Dynamic: How 13 Skills Collaborate
+
+> System overview: 5-phase complete cognitive lifecycle with Subagent isolation points and always-on Rules
+
+![cognitive-os Complete Cognitive Lifecycle](docs/assets/dynamic_lifecycle.png)
+
+> Mode breakdown: Initial Construction (5 modes) vs Iterative Evolution (8 modes), with cognitive science basis for each
+
+![Building vs Evolving Modes](docs/assets/dynamic_modes.png) 13 Skills + 4 Rules + 4 SubAgents that let AI agents **build, maintain, and self-evolve** your cognitive framework — grounded in 50+ years of cognitive science.
 
 ---
 
