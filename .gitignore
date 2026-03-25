@@ -1,26 +1,30 @@
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
-# Editor
-.vscode/
-*.swp
-*.swo
+# Cursor IDE
+.cursor/logs/
+.cursor/tmp/
 
-# Python
+# Personal cognitive content (user-specific, not to be committed publicly)
+cognitive/L1_knowledge/
+cognitive/L2_fragments/
+cognitive/L3_logs/
+cognitive/L0_brain_map.md
+cognitive/document_catalog.md
+cognitive/knowledge_graph.md
+logs/
+
+# Keep templates
+!cognitive/L1_knowledge/README.md
+!cognitive/L2_fragments/fragment_index.md
+!cognitive/L2_fragments/reflections/reflections.md
+!cognitive/L3_logs/system_log.md
+!cognitive/L3_logs/todo.md
+!cognitive/L3_logs/consistency_record.md
+
+# Node / Python
+node_modules/
 __pycache__/
 *.pyc
-*.pyo
 .env
-venv/
-
-# Logs (personal, not template)
-logs/task_log.md
-
-# Personal cognitive content (the cognitive/ folder is a template — 
-# users fill it with their own knowledge; don't track personal content
-# if you fork this repo for personal use)
-# Uncomment the lines below to exclude personal cognitive content:
-# cognitive/L1_knowledge/*/
-# cognitive/L2_fragments/*/
-# cognitive/L1.5_principles/principles.md
