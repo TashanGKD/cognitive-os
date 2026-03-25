@@ -19,6 +19,7 @@
   <a href="#13-个-skill">Skills</a> •
   <a href="#安装方式">安装</a> •
   <a href="#快速开始">快速开始</a> •
+  <a href="docs/article/cognitive-science-deep-dive.md">深度解析文章</a> •
   <a href="README.en.md">English</a>
 </p>
 
@@ -27,8 +28,15 @@
 [![Rules](https://img.shields.io/badge/Rules-4-green)](#4-条规则)
 [![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-个子智能体)
 [![Cognitive Science](https://img.shields.io/badge/Based_on-Cognitive_Science-orange)](#认知科学基础)
+[![Deep Dive](https://img.shields.io/badge/深度文章-配图版-teal)](docs/article/cognitive-science-deep-dive.html)
 
 > 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。13 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
+
+---
+
+> 📖 **深度阅读**：[**《把大脑分层外化：一套 AI 认知体系的神经科学解构》**](docs/article/cognitive-science-deep-dive.md)
+> 完整解析每个 Skill 与认知科学理论的逐步对应，含 10 张配图（Piaget 同化/顺应、ViolEx 矛盾模型、Wallas 顿悟四阶段、扩散激活……）
+> 📎 [HTML 配图完整版（12MB，含 base64 嵌入图片）](docs/article/cognitive-science-deep-dive.html)
 
 ---
 
@@ -294,6 +302,12 @@ cognitive-os/
 │   ├── skills/                   # 与 skills/ 保持同步
 │   ├── rules/                    # 与 rules/ 保持同步
 │   └── agents/                   # 与 agents/ 保持同步
+│
+├── docs/
+│   ├── assets/tashan.svg                     # 他山 Logo
+│   └── article/
+│       ├── cognitive-science-deep-dive.md    # ★ 深度解析文章（Markdown，可直接阅读）
+│       └── cognitive-science-deep-dive.html  # ★ 同上，含 10 张配图的 HTML 完整版（12MB）
 │
 ├── logs/
 │   └── task_log.md               # 任务日志模板

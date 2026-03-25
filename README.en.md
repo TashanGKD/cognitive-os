@@ -17,8 +17,15 @@
 [![Skills](https://img.shields.io/badge/Skills-13-blue)](#13-skills)
 [![Rules](https://img.shields.io/badge/Rules-4-green)](#4-rules)
 [![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-subagents)
+[![Deep Dive](https://img.shields.io/badge/Deep_Dive-With_Diagrams-teal)](docs/article/cognitive-science-deep-dive.html)
 
-> Externalize the human brain's layered memory structure into an AI-operable knowledge system. 13 Skills + 4 Rules + 4 SubAgents that let AI agents **build, maintain, and self-evolve** your cognitive framework — grounded in 50+ years of cognitive science.
+> Externalize the human brain's layered memory structure into an AI-operable knowledge system.
+
+---
+
+> 📖 **Deep Dive Article**: [**"Externalizing the Layered Brain: A Neuroscience Deconstruction of an AI Cognitive System"**](docs/article/cognitive-science-deep-dive.md)
+> Step-by-step mapping of each Skill to cognitive science theory, with 10 original diagrams (Piaget assimilation/accommodation, ViolEx contradiction model, Wallas 4-stage incubation, spreading activation…)
+> 📎 [Full HTML version with embedded images (12MB)](docs/article/cognitive-science-deep-dive.html) 13 Skills + 4 Rules + 4 SubAgents that let AI agents **build, maintain, and self-evolve** your cognitive framework — grounded in 50+ years of cognitive science.
 
 ---
 
