@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Logs (personal, not template)
+logs/task_log.md
+
+# Personal cognitive content (the cognitive/ folder is a template — 
+# users fill it with their own knowledge; don't track personal content
+# if you fork this repo for personal use)
+# Uncomment the lines below to exclude personal cognitive content:
+# cognitive/L1_knowledge/*/
+# cognitive/L2_fragments/*/
+# cognitive/L1.5_principles/principles.md
