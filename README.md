@@ -46,7 +46,7 @@
 
 > 不是比喻——每一层文件对应神经科学中已被实证的记忆类型
 
-![Five-Layer Cognitive Structure](docs/assets/static_layers.png)
+![五层认知结构与大脑记忆系统对照](docs/assets/static_layers_zh.png)
 
 ---
 
@@ -54,11 +54,11 @@
 
 > 系统总览：五大阶段的完整认知生命周期，含 Subagents 隔离节点和 Rules 守门机制
 
-![cognitive-os Complete Cognitive Lifecycle](docs/assets/dynamic_lifecycle.png)
+![cognitive-os 完整认知生命周期系统](docs/assets/dynamic_lifecycle_zh.png)
 
 > 模式详表：初始构建（5 种模式）vs 迭代进化（8 种模式），每种操作对应的认知科学依据
 
-![Building vs Evolving Modes](docs/assets/dynamic_modes.png)
+![两套机制：构建认知结构 vs 自我进化](docs/assets/dynamic_modes_zh.png)
 
 ---
 
