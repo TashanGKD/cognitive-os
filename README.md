@@ -1,273 +1,352 @@
-# cognitive-os · 认知操作系统
+<!-- Logo -->
+<p align="center">
+  <a href="https://tashan.ac.cn" target="_blank" rel="noopener noreferrer">
+    <img src="docs/assets/tashan.svg" alt="他山 Logo" width="280" />
+  </a>
+</p>
 
-> **AI agents don't forget. But without structure, they can't truly think.**
->
-> **AI 智能体不会遗忘。但没有结构，它们无法真正思考。**
+<!-- 标题 -->
+<p align="center">
+  <strong>cognitive-os · 认知操作系统</strong><br>
+  <em>Cognitive OS — AI-native Knowledge Externalization for Cursor Agents</em>
+</p>
 
-A Cursor-native system that externalizes the human brain's layered memory structure, enabling AI agents to **build**, **maintain**, and **self-evolve** a user's cognitive framework — grounded in 50+ years of cognitive science.
+<!-- 快速导航 -->
+<p align="center">
+  <a href="#这是什么">这是什么</a> •
+  <a href="#认知科学基础">认知科学</a> •
+  <a href="#五层架构">五层架构</a> •
+  <a href="#13-个-skill">Skills</a> •
+  <a href="#安装方式">安装</a> •
+  <a href="#快速开始">快速开始</a> •
+  <a href="README.en.md">English</a>
+</p>
 
-一套基于 Cursor 的认知外化系统，将人类大脑的层级记忆结构数字化，让 AI 智能体能够**构建**、**维护**并**自我迭代**用户的认知体系 — 以 50 余年认知科学研究为基础。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Skills](https://img.shields.io/badge/Skills-13-blue)](#13-个-skill)
+[![Rules](https://img.shields.io/badge/Rules-4-green)](#4-条规则)
+[![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-个子智能体)
+[![Cognitive Science](https://img.shields.io/badge/Based_on-Cognitive_Science-orange)](#认知科学基础)
 
----
-
-## Why This Exists / 为什么做这个
-
-Every knowledge worker faces the same problem: their best thinking is trapped inside their head — fragmented, inconsistent, inaccessible to AI agents, and forgotten the moment they switch contexts.
-
-每个知识工作者都面临同一个问题：他们最好的思考被锁在脑子里——碎片化、自相矛盾、AI 无法触及，而且一旦切换上下文就会遗忘。
-
-This system does one thing: **externalize the cognitive structure of the human brain into a queryable, updatable, self-consistent knowledge system** that AI agents can operate on.
-
-这套系统做一件事：**把人脑的认知结构外化为可查询、可更新、自洽的知识体系**，让 AI 智能体能够操作它。
-
----
-
-## Cognitive Science Foundation / 认知科学基础
-
-The architecture mirrors the human brain's actual memory hierarchy (as established by Squire & Zola-Morgan, 1993; Piaget, 1952; Flavell, 1979):
-
-系统架构镜像了人类大脑的真实记忆层次（Squire & Zola-Morgan 1993; Piaget 1952; Flavell 1979 的研究成果）：
-
-| Layer | Files | Brain Equivalent | Theory |
-|---|---|---|---|
-| **L0** Brain Map | `cognitive/L0_brain_map.md` | Metacognition | Flavell (1979) |
-| **L1.5** Principles | `cognitive/L1.5_principles/` | Schema / Mental Model | Piaget (1952) |
-| **L1** Knowledge | `cognitive/L1_knowledge/` | Semantic Memory | Squire & Zola-Morgan (1993) |
-| **L2** Fragments | `cognitive/L2_fragments/` | Episodic→Semantic transition | Hippocampal-neocortical dialogue |
-| **L3** Logs | `cognitive/L3_logs/` | Episodic Memory | Tulving (1972) |
-
-Each cognitive operation is also grounded in theory:
-
-每种认知操作也有对应的理论基础：
-
-| Operation / Skill | Cognitive Science Mechanism | Key Reference |
-|---|---|---|
-| Fragment capture | Episodic memory externalization + Source Monitoring | Tulving (1972); Source Monitoring Framework |
-| Fragment integration (Homunculus mechanism) | Piaget Assimilation / Accommodation | Piaget (1952) Equilibration Theory |
-| Direct L1 update | Controlled semantic memory modification `ceremony(K)` | Formal specification; Flavell metacognitive monitoring |
-| Principle extraction | Schema formation via DMN incubation | Wallas (1926) 4-stage model; Collins & Loftus (1975) |
-| Contradiction detection | ViolEx 2.0 schema violation processing | Gawronski & Brannon (2022) |
-| Self-reflection | Reflection vs. Rumination distinction | Treynor et al. (2003); DMN+FPCN vs. mPFC |
-| Cascade notification | Spreading activation | Collins & Loftus (1975) |
-| Task-cognitive extraction | Episodic→Semantic consolidation | Squire (1993) hippocampal-neocortical dialogue |
+> 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。13 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
 
 ---
 
-## Architecture / 架构
+## 这是什么
+
+**cognitive-os 解决一个根本问题：**
+
+> **你的最好思考被锁在脑子里——碎片化、自相矛盾、AI 无法触及。**
+
+| 问题 | 表现 | 解决方式 |
+|------|------|---------|
+| AI 不了解你怎么思考 | 每次问 AI「你觉得怎么样」，它用通用知识回答，不是你的判断 | 把你的认知框架外化，AI 基于**你的文档**回答 |
+| 洞见停留在脑子里 | 想到好的观点，没记下来，或记了但找不到 | 碎片捕捉机制，结构化写入分层知识体系 |
+| 知识体系自相矛盾 | 不同时期写的文档互相冲突，不知道哪个对 | 矛盾检测 + 版本控制 + 自洽验证，C1-C13 十三条一致性条件 |
+| 经验无法自我进化 | 人工智能每次对话都从零开始，无法积累 | 级联通知 + 任务萃取，认知体系在每次工作中自动更新 |
+
+**用一句话描述**：你说「这是我的新洞见」，AI 自动捕捉 → 判断关联 → 整合进你的知识体系 → 矛盾检测 → 级联通知相关模块。
+
+---
+
+## 认知科学基础
+
+这套系统的架构**严格对应**人类大脑的真实记忆层次（非比喻，有神经科学实证）：
+
+| 系统层 | 文件位置 | 大脑对应 | 理论依据 |
+|--------|---------|---------|---------|
+| **L0** 大脑总地图 | `cognitive/L0_brain_map.md` | 元认知框架 | Flavell (1979) |
+| **L1.5** 底层原则库 | `cognitive/L1.5_principles/` | 图式/心智模型 Schema | Piaget (1952) |
+| **L1** 系统性文档 | `cognitive/L1_knowledge/` | 语义记忆 Semantic Memory | Squire & Zola-Morgan (1993) |
+| **L2** 碎片化思考 | `cognitive/L2_fragments/` | 情节→语义转化中间层 | 海马体-新皮层对话 |
+| **L3** 原始记录 | `cognitive/L3_logs/` | 情节记忆 Episodic Memory | Tulving (1972) |
+
+每种认知操作也有对应的认知科学机制：
+
+| 操作 | Skill | 认知科学机制 | 文献依据 |
+|------|-------|------------|---------|
+| 碎片捕捉 | `cognitive-capture-fragment` | 情节记忆外化 + 来源监控 | Tulving (1972) |
+| 碎片整合（小人机制）| `cognitive-integrate-fragments` | Piaget 同化/顺应 | Piaget (1952) |
+| 直接更新知识 | `cognitive-update-knowledge` | 语义记忆受控修改 ceremony(K) | 形式规范；Flavell 1979 |
+| 原则提炼 | `cognitive-extract-principle` | DMN 后台加工 → 图式形成 | Wallas (1926); Collins & Loftus (1975) |
+| 矛盾检测 | `cognitive-detect-contradiction` | ViolEx 2.0 图式违反处理 | Gawronski & Brannon (2022) |
+| 自我反思 | `cognitive-self-reflect` | 反思 vs 反刍神经机制 | Treynor et al. (2003) |
+| 级联传播 | `cognitive-cascade-notifier` | 扩散激活 Spreading Activation | Collins & Loftus (1975) |
+| 任务萃取 | `cognitive-task-reflector` | 情节→语义转化（记忆巩固）| Squire (1993) |
+
+---
+
+## 五层架构
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  L0  大脑总地图（元认知层）                                    ║
+║  读完 = 恢复所有上下文；维护协议见 maintenance_protocol.md    ║
+╚═══════════════════════════╤══════════════════════════════════╝
+                            ↕ 约束↑ / 提炼↓
+┌───────────────────────────────────────────────────────────────┐
+│  L1.5  底层原则库（图式层）                                    │
+│  跨领域通用的核心思维习惯，是认知的「操作系统」                  │
+│  P1：验证优先于感受    P2：从小点切入升维到底层规律             │
+└───────────────────────┬───────────────────────────────────────┘
+                        ↕ 约束↓ / 提炼↑
+╔══════════════════════════════════════════════════════════════╗
+║  L1  系统性文档（语义记忆）                                    ║
+║  去时间化、跨场景成立的知识框架（按领域组织）                   ║
+╚══════════════════════╤═══════════════════════════════════════╝
+                       ↕ 小人整合机制（Piaget同化/顺应）
+┌──────────────────────────────────────────────────────────────┐
+│  L2  碎片化思考（情节→语义转化层）                              │
+│  待整合的原材料：新洞见、自我反思、技术发现                     │
+│  fragment_index.md 追踪每条碎片状态                            │
+└──────────────────────┬───────────────────────────────────────┘
+                       ↓ 全记录
+┌──────────────────────────────────────────────────────────────┐
+│  L3  原始记录（情节记忆）                                       │
+│  system_log.md（操作日志）  todo.md  consistency_record.md    │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**三大闭环中的位置**：cognitive-os 实现的是 **Loop 2（认知系统）**——让系统「知道为什么」。它与 [tashan-cursor-skills](https://github.com/TashanGKD/tashan-cursor-skills)（Loop 1 执行系统）配合，形成完整的自进化 AI 系统。
+
+---
+
+## 13 个 Skill
+
+### 初始构建（5 种模式）
+
+| Skill | 触发词 | 作用 | 认知科学 |
+|-------|--------|------|---------|
+| `cognitive-capture-fragment` | 碎片/记录一下/新洞见/我发现 | 捕捉碎片想法，写入 L2，带归因标注 | 情节记忆外化 |
+| `cognitive-integrate-fragments` | 整合碎片/处理积压/消化碎片 | 将 L2 碎片整合进 L1（小人机制：同化/顺应/已覆盖）| Piaget 平衡化 |
+| `cognitive-update-knowledge` | 更新[文档]/修改[文档]/在[文档]里加上 | 受控更新 L1 文档：备份→归因→矛盾检测→5处级联写入 | ceremony(K) 协议 |
+| `cognitive-extract-principle` | 提炼原则/有什么规律/底层逻辑 | 从 L2 碎片中提炼跨领域通用原则，写入 L1.5 | DMN 图式形成 |
+| `cognitive-reorganize` | 系统整理/重组认知结构/认知结构乱了 | 从零/散落文档构建认知结构，四轴分类 | 记忆系统首次结构化 |
+
+### 迭代进化（8 种模式）
+
+| Skill | 触发词 | 作用 | 认知科学 |
+|-------|--------|------|---------|
+| `cognitive-detect-contradiction` | 矛盾/不一致/检查一致性 | 5类矛盾检测 + ViolEx 防御模式追踪（C13）| ViolEx 2.0 |
+| `cognitive-consistency-check` | 一致性检查/自洽检查/跑一遍验证 | C1-C13 完整自洽验证，发现立即修复 | Flavell 元认知监控 |
+| `cognitive-self-reflect` | 反思/我发现我有个习惯/我注意到 | 10轮追问+5维度深挖，内置反刍检测 | Treynor 2003 反思/反刍 |
+| `cognitive-ask` | 基于我的文档/根据我的想法/帮我回忆 | 严格基于你自己的文档回答，标注来源和置信度 | 语义记忆检索 |
+| `cognitive-daily-briefing` | 汇报/今天有什么/同步状态 | 生成认知系统每日状态报告 | 情节记忆更新综述 |
+| `cognitive-review-brain-map` | 大脑地图/认知状态/系统状态 | 生成当前认知结构状态快照 | 元认知快照 |
+| `cognitive-version-snapshot` | 创建新版本/打快照/这次改动很大 | 为 L1 文档创建重大版本里程碑 | 长期记忆巩固 |
+| `cognitive-input-classifier` | 帮我判断/先分类/路由分类一下 | 输入路由分类器（认知更新 vs 任务执行）| 认知分类前置 |
+
+---
+
+## 4 个子智能体
+
+| SubAgent | 作用 | 独立 Context 价值 |
+|---------|------|-----------------|
+| `cognitive-verifier` | L1 更新后自洽验证（CV-1/CV-2/CV-3）| 独立「读者」视角，避免创作者视角偏差 |
+| `cognitive-fragment-integrator` | ≥5条碎片时批量整合 | 纯粹小人视角，不被碎片捕捉历史污染 |
+| `cognitive-cascade-notifier` | 原则/L1重大更新后后台级联通知 | 后台异步，不阻断主流程，扩散激活等价 |
+| `cognitive-task-reflector` | 认知类任务完成后自动萃取认知价值 | 脱离操作细节，以「认知体系维护者」视角分析 |
+
+---
+
+## 4 条规则
+
+| Rule | 类型 | 作用 |
+|------|------|------|
+| `cognitive-structure-write-guard` | 条件触发 | 写入 L1/L1.5 前：强制备份 + 归因标注 + 5处级联写入 |
+| `cognitive-l3-auto-log` | alwaysApply | 每次 cognitive-* 操作后：自动追加系统日志 |
+| `cognitive-principle-check` | 条件触发 | 写完 L1 内容后：自动校验与 P1/P2 的张力 |
+| `fragment-before-direct-edit` | 条件触发 | 直接改 L1 前：提示「先记碎片还是直接改？」|
+
+---
+
+## 安装方式
+
+### 方式一：`ai-agent-skills` CLI（推荐，一行命令）
+
+```bash
+# 安装到当前项目
+npx ai-agent-skills install TashanGKD/cognitive-os
+
+# 或安装到全局（所有 Cursor 项目可用）
+npx ai-agent-skills install --global TashanGKD/cognitive-os
+```
+
+安装完成后，还需要初始化认知结构模板：
+
+```bash
+# 初始化 cognitive/ 目录（首次使用）
+./scripts/setup.sh
+```
+
+### 方式二：Cursor 内置 GitHub 导入
+
+1. 打开 Cursor 设置（`Cmd+Shift+J`）
+2. 进入 **Rules** → **Add Rule** → **Remote Rule (Github)**
+3. 输入：`https://github.com/TashanGKD/cognitive-os`
+4. 重启 Cursor
+
+### 方式三：手动复制（完全控制）
+
+```bash
+git clone https://github.com/TashanGKD/cognitive-os.git
+
+# 复制 Skills/Rules/Agents
+cp -r cognitive-os/skills/* your-project/.cursor/skills/
+cp -r cognitive-os/rules/* your-project/.cursor/rules/
+cp -r cognitive-os/agents/* your-project/.cursor/agents/
+
+# 初始化认知结构模板
+cd cognitive-os && ./scripts/setup.sh /path/to/your-project
+```
+
+重启 Cursor，所有 Skill 和 Rule 自动生效。
+
+---
+
+## 快速开始
+
+安装完成后，在 Cursor 对话框里说：
+
+```
+# 1. 初始化你的认知结构
+"帮我系统整理我的认知结构"
+→ cognitive-reorganize Skill 引导你四轴分类所有文档
+
+# 2. 记录一个新想法
+"碎片：我发现每次压力大的时候，我会跳过验证步骤"
+→ cognitive-capture-fragment 自动结构化写入 L2
+
+# 3. 整合积压的碎片
+"整合这些碎片"
+→ cognitive-integrate-fragments 按 Piaget 同化/顺应机制整合
+
+# 4. 提炼底层规律
+"这些碎片有没有共同的底层规律？提炼原则"
+→ cognitive-extract-principle 跨域分析，≥3个领域才确认
+
+# 5. 问你自己的文档
+"基于我的文档，我对产品设计的核心观点是什么？"
+→ cognitive-ask 严格引用你的 L1/L1.5/L2，标注来源
+
+# 6. 每日认知汇报
+"今天认知系统有什么更新？"
+→ cognitive-daily-briefing 生成积压/更新/待处理报告
+```
+
+---
+
+## 代码结构
 
 ```
 cognitive-os/
+├── README.md                     # 本文件（中文）
+├── README.en.md                  # English version
+├── LICENSE                       # MIT
 │
-├── cognitive/                 ← Your cognitive structure (user-customized)
-│   ├── L0_brain_map.md        ← Metacognition: master index, restores context fast
-│   ├── maintenance_protocol.md ← C1-C13 consistency conditions
-│   ├── document_catalog.md    ← Status of all documents
-│   ├── knowledge_graph.md     ← Relationship map of L1 documents
-│   ├── work_domains.md        ← Your work areas (for cascade notifications)
-│   ├── L1.5_principles/       ← Core principles (Schema layer)
-│   │   └── principles.md
-│   ├── L1_knowledge/          ← Systematic knowledge (Semantic Memory)
-│   │   └── [your domains]/
-│   ├── L2_fragments/          ← Raw insights (Episodic→Semantic in-progress)
-│   │   ├── fragment_index.md
+├── skills/                       # 13 个 Skills（供 ai-agent-skills CLI 安装）
+│   ├── cognitive-capture-fragment/SKILL.md
+│   ├── cognitive-integrate-fragments/SKILL.md
+│   ├── cognitive-update-knowledge/SKILL.md
+│   ├── cognitive-extract-principle/SKILL.md
+│   ├── cognitive-detect-contradiction/SKILL.md
+│   ├── cognitive-ask/SKILL.md
+│   ├── cognitive-self-reflect/SKILL.md
+│   ├── cognitive-daily-briefing/SKILL.md
+│   ├── cognitive-review-brain-map/SKILL.md
+│   ├── cognitive-consistency-check/SKILL.md
+│   ├── cognitive-reorganize/SKILL.md
+│   ├── cognitive-input-classifier/SKILL.md
+│   └── cognitive-version-snapshot/SKILL.md
+│
+├── rules/                        # 4 个 Rules（alwaysApply 或条件触发）
+│   ├── cognitive-structure-write-guard.mdc
+│   ├── cognitive-l3-auto-log.mdc
+│   ├── cognitive-principle-check.mdc
+│   └── fragment-before-direct-edit.mdc
+│
+├── agents/                       # 4 个 SubAgents（独立 context）
+│   ├── cognitive-verifier.md
+│   ├── cognitive-fragment-integrator.md
+│   ├── cognitive-cascade-notifier.md
+│   └── cognitive-task-reflector.md
+│
+├── cognitive/                    # 认知结构模板（用户自定义内容）
+│   ├── L0_brain_map.md           # 元认知总地图模板
+│   ├── maintenance_protocol.md   # C1-C13 自洽规范
+│   ├── document_catalog.md       # 文档分类清单
+│   ├── knowledge_graph.md        # 知识图谱
+│   ├── work_domains.md           # 工作域定义（cascade 通知用）
+│   ├── L1.5_principles/
+│   │   └── principles.md         # 底层原则库模板（含 P1/P2）
+│   ├── L1_knowledge/
+│   │   └── README.md             # L1 组织指南
+│   ├── L2_fragments/
+│   │   ├── fragment_index.md     # 碎片索引模板
 │   │   └── reflections/
-│   └── L3_logs/               ← Operation logs (Episodic Memory)
-│       ├── system_log.md
-│       ├── todo.md
-│       └── consistency_record.md
+│   │       └── reflections.md    # 自我反思记录模板
+│   └── L3_logs/
+│       ├── system_log.md         # 系统日志模板
+│       ├── todo.md               # 待完成清单模板
+│       └── consistency_record.md # 一致性检查记录模板
 │
-├── .cursor/
-│   ├── skills/                ← 13 cognitive-* Skills
-│   │   ├── cognitive-capture-fragment/
-│   │   ├── cognitive-integrate-fragments/
-│   │   ├── cognitive-update-knowledge/
-│   │   ├── cognitive-extract-principle/
-│   │   ├── cognitive-detect-contradiction/
-│   │   ├── cognitive-ask/
-│   │   ├── cognitive-self-reflect/
-│   │   ├── cognitive-daily-briefing/
-│   │   ├── cognitive-review-brain-map/
-│   │   ├── cognitive-consistency-check/
-│   │   ├── cognitive-reorganize/
-│   │   ├── cognitive-input-classifier/
-│   │   └── cognitive-version-snapshot/
-│   │
-│   ├── agents/                ← 4 cognitive-* Subagents
-│   │   ├── cognitive-verifier.md         ← Post-update consistency check
-│   │   ├── cognitive-fragment-integrator.md  ← Batch integration (≥5 fragments)
-│   │   ├── cognitive-cascade-notifier.md ← Spreading activation notifier
-│   │   └── cognitive-task-reflector.md   ← Post-task cognitive extraction
-│   │
-│   └── rules/                 ← 4 cognitive-* Rules (always-on guards)
-│       ├── cognitive-structure-write-guard.mdc  ← Enforces backup+attribution+cascade
-│       ├── cognitive-l3-auto-log.mdc            ← Auto-logs all cognitive ops
-│       ├── cognitive-principle-check.mdc        ← Checks new content vs principles
-│       └── fragment-before-direct-edit.mdc      ← Prompts fragment-first workflow
+├── .cursor/                      # 同上（直接作为 Cursor workspace 时使用）
+│   ├── skills/                   # 与 skills/ 保持同步
+│   ├── rules/                    # 与 rules/ 保持同步
+│   └── agents/                   # 与 agents/ 保持同步
 │
 ├── logs/
-│   └── task_log.md            ← AI task history
+│   └── task_log.md               # 任务日志模板
 │
 └── scripts/
-    └── setup.sh               ← One-command initialization
+    └── setup.sh                  # 一键初始化脚本
 ```
 
 ---
 
-## Quick Start / 快速开始
+## 生态位置
 
-### Option A: New Workspace (Recommended)
-
-```bash
-# Clone the repository into your workspace
-git clone https://github.com/TashanGKD/cognitive-os.git
-cd cognitive-os
-
-# Initialize (copies cognitive structure + .cursor/ into current directory)
-./scripts/setup.sh
-
-# Open in Cursor
-cursor .
+```
+他山生态
+├── Resonnet / tashan-openbrain   ← 多智能体认知协作平台（使用者）
+├── Tashan-TopicLab               ← 多专家圆桌讨论
+├── tashan-cursor-skills          ← Loop 1：AI 执行规范体系（Skill 执行）
+├── cognitive-os ★                ← Loop 2：认知操作系统（本仓库）
+└── world-axiom-framework         ← 数字世界公理框架（理论基础）
 ```
 
-### Option B: Add to Existing Workspace
+| 仓库 | 定位 | 链接 |
+|------|------|------|
+| tashan-cursor-skills | Loop 1 执行体系（95 Skills + 32 Rules） | [TashanGKD/tashan-cursor-skills](https://github.com/TashanGKD/tashan-cursor-skills) |
+| Resonnet | 多智能体认知协作后端 | [TashanGKD/Resonnet](https://github.com/TashanGKD/Resonnet) |
+| world-axiom-framework | 数字世界公理框架 | [TashanGKD/world-axiom-framework](https://github.com/TashanGKD/world-axiom-framework) |
 
-```bash
-# In your existing workspace root:
-git clone https://github.com/TashanGKD/cognitive-os.git /tmp/cognitive-os
-cd /tmp/cognitive-os
-./scripts/setup.sh /path/to/your/workspace
-```
-
-### First Steps After Setup
-
-1. Open your workspace in Cursor
-2. Edit `cognitive/work_domains.md` — define your work areas
-3. In Cursor chat, say: **"Let's reorganize my cognitive structure"** → `cognitive-reorganize` Skill guides you
-4. Start capturing ideas: **"Record a fragment: [your idea]"** → `cognitive-capture-fragment`
-5. Ask your own documents: **"Based on my documents, what do I think about [topic]?"** → `cognitive-ask`
+**与 tashan-cursor-skills 的关系**：
+- `tashan-cursor-skills` = Loop 1（让 AI 知道**怎么做**）
+- `cognitive-os` = Loop 2（让 AI 知道**为什么**）
+- 两者配合 = AI 既有执行规范，又有认知根基
 
 ---
 
-## The 13 Skills / 13 种操作技能
+## 参考文献
 
-### Initial Construction (5 modes) — building the structure
-
-| Skill | Cognitive Science | What it does |
-|---|---|---|
-| `cognitive-capture-fragment` | Episodic memory externalization | Captures ideas as L2 fragments with attribution |
-| `cognitive-integrate-fragments` | Piaget Assimilation/Accommodation | Integrates fragments into L1 (Homunculus mechanism) |
-| `cognitive-update-knowledge` | Controlled semantic memory update | Directly updates L1 with ceremony(K) protocol |
-| `cognitive-extract-principle` | DMN incubation → Schema formation | Distills cross-domain patterns into L1.5 principles |
-| `cognitive-reorganize` | Memory system initialization | Classifies existing documents into 4-axis framework |
-
-### Iterative Evolution (7 modes) — keeping it fresh
-
-| Skill | Cognitive Science | What it does |
-|---|---|---|
-| `cognitive-detect-contradiction` | ViolEx 2.0 schema violation | Finds and resolves 5 types of contradictions |
-| `cognitive-consistency-check` | Flavell metacognitive monitoring | Runs C1-C13 consistency validation |
-| `cognitive-self-reflect` | Reflection vs. Rumination | Guided deep reflection with anti-rumination detection |
-| `cognitive-ask` | Semantic memory retrieval | Answers questions strictly from your own documents |
-| `cognitive-daily-briefing` | Episodic memory update review | Generates daily cognitive status report |
-| `cognitive-review-brain-map` | Metacognitive snapshot | Shows current state of your cognitive structure |
-| `cognitive-version-snapshot` | Long-term memory consolidation | Creates milestone snapshots of L1 documents |
-| `cognitive-input-classifier` | Input routing | Classifies ambiguous inputs before acting |
-
-### The 4 Subagents / 4 个子智能体
-
-| Agent | Role | Isolation Value |
-|---|---|---|
-| `cognitive-verifier` | Read-only post-update consistency check | Independent "reader" perspective, no author bias |
-| `cognitive-fragment-integrator` | Batch integrator for ≥5 fragments | Pure homunculus perspective, uncontaminated by capture history |
-| `cognitive-cascade-notifier` | Async spreading activation notifier | Background, non-blocking principle propagation |
-| `cognitive-task-reflector` | Post-task cognitive extraction | Extracts insights from task logs without operation detail noise |
-
-### The 4 Rules / 4 条规则（始终生效）
-
-| Rule | Always-On | What it enforces |
-|---|---|---|
-| `cognitive-structure-write-guard` | Yes (conditional) | Before writing L1/L1.5: backup + attribution + 5 cascade writes |
-| `cognitive-l3-auto-log` | Yes (alwaysApply) | After every cognitive-* op: auto-append system log |
-| `cognitive-principle-check` | Yes (conditional) | After writing L1 content: check tension with P1/P2 |
-| `fragment-before-direct-edit` | Yes (conditional) | Before editing L1: ask "fragment first or direct edit?" |
-
----
-
-## Example Interactions / 使用示例
-
-```
-# Capture a new insight
-"I just realized that every time I design a system under pressure, I skip validation. Record this."
-→ cognitive-capture-fragment: stores as L2 fragment with attribution, checks for duplicates
-
-# Integrate accumulated insights
-"I have 7 fragments pending. Integrate them."
-→ cognitive-integrate-fragments: applies Piaget assimilation/accommodation to each
-
-# Ask your own knowledge
-"Based on my documents, what's my view on product-market fit?"
-→ cognitive-ask: searches L1.5→L1→L2, returns answer with citations, confidence, gaps
-
-# Daily briefing
-"What's my cognitive status today?"
-→ cognitive-daily-briefing: shows changes since last session, pending items, suggested priorities
-
-# Detect contradictions
-"Check if my product theory and organization theory documents are consistent."
-→ cognitive-detect-contradiction: finds 5 types, proposes resolution options
-
-# Extract a principle
-"I keep seeing the same pattern across my notes. Extract the principle."
-→ cognitive-extract-principle: requires ≥3 cross-domain examples, challenges with counter-examples
-```
-
----
-
-## Formal Foundation / 形式化基础
-
-The entire system is derived from 3 axioms (see `cognitive/L1_knowledge/formal_spec/`):
-
-整套系统从 3 条公理推导而来：
-
-```
-Axiom A1: An agent receives inputs, executes operations, produces outputs.
-Axiom A2: The agent's behavior at time t is fully determined by its internal object set at t.
-Axiom A3: The same agent can have different internal object sets at different times.
-```
-
-From these axioms, the minimum infrastructure for self-evolution is: **{R, M, G}**:
-- **R** (Registry): complete observability — all objects registered (= fragment index + knowledge graph)
-- **M** (Modifier): controlled modification — formal ceremony protocol (= write-guard + change logs)
-- **G** (Gap detector): self-sensing gaps (= cascade-notifier + task-reflector)
-
----
-
-## References / 参考文献
-
-1. Tulving, E. (1972). Episodic and semantic memory. *Organization of memory*, 1, 381-403.
+1. Tulving, E. (1972). Episodic and semantic memory.
 2. Squire, L. R., & Zola-Morgan, S. (1993). The medial temporal lobe memory system. *Science*, 253(5026).
-3. Flavell, J. H. (1979). Metacognition and cognitive monitoring. *American psychologist*, 34(10), 906.
+3. Flavell, J. H. (1979). Metacognition and cognitive monitoring. *American psychologist*, 34(10).
 4. Piaget, J. (1952). *The origins of intelligence in children*. International Universities Press.
-5. Collins, A. M., & Loftus, E. F. (1975). A spreading-activation theory of semantic processing. *Psychological review*, 82(6), 407.
-6. Wallas, G. (1926). *The art of thought*. Harcourt, Brace and Company.
-7. Treynor, W., et al. (2003). Rumination reconsidered. *Cognitive therapy and research*, 27(3), 247-259.
+5. Collins, A. M., & Loftus, E. F. (1975). A spreading-activation theory of semantic processing. *Psychological review*, 82(6).
+6. Wallas, G. (1926). *The art of thought*.
+7. Treynor, W., et al. (2003). Rumination reconsidered. *Cognitive therapy and research*, 27(3).
 8. Gawronski, B., & Brannon, S. M. (2022). What is cognitive consistency? *Dual-process theories of the social mind*.
 
 ---
 
-## License / 许可证
+## 贡献
 
-MIT License — free to use, modify, and distribute.
-
----
-
-## Contributing / 贡献
-
-Issues and PRs welcome. If you find the system works well for your use case, consider sharing:
-- Your domain structure under `L1_knowledge/`
-- New Skills you've created
-- Examples of successful principle extraction
+欢迎 Issue 和 PR。修改任何 Skill/Rule/Agent 前，参考 `skills/cognitive-consistency-check/SKILL.md` 中的 C12 自洽条件，确保修改有认知科学对应标注。
 
 ---
 
-*cognitive-os v1.0 | Built on cognitive science. Designed for AI agents.*
+## 许可证
+
+MIT License. See [LICENSE](LICENSE) for details.

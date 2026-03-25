@@ -2,26 +2,17 @@
 .DS_Store
 Thumbs.db
 
-# Cursor IDE
+# Cursor IDE internal
 .cursor/logs/
 .cursor/tmp/
 
-# Personal cognitive content (user-specific, not to be committed publicly)
-cognitive/L1_knowledge/
-cognitive/L2_fragments/
-cognitive/L3_logs/
-cognitive/L0_brain_map.md
-cognitive/document_catalog.md
-cognitive/knowledge_graph.md
-logs/
-
-# Keep templates
-!cognitive/L1_knowledge/README.md
-!cognitive/L2_fragments/fragment_index.md
-!cognitive/L2_fragments/reflections/reflections.md
-!cognitive/L3_logs/system_log.md
-!cognitive/L3_logs/todo.md
-!cognitive/L3_logs/consistency_record.md
+# User's personal cognitive content (NOT committed to the template repo)
+# Uncomment these lines in your own workspace's .gitignore to protect personal content:
+# cognitive/L1_knowledge/**/*.md
+# cognitive/L2_fragments/
+# cognitive/L3_logs/
+# cognitive/L0_brain_map.md
+# logs/task_log.md
 
 # Node / Python
 node_modules/
