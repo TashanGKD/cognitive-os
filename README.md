@@ -24,13 +24,13 @@
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-13-blue)](#13-个-skill)
+[![Skills](https://img.shields.io/badge/Skills-14-blue)](#14-个-skill)
 [![Rules](https://img.shields.io/badge/Rules-4-green)](#4-条规则)
 [![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-个子智能体)
 [![Cognitive Science](https://img.shields.io/badge/Based_on-Cognitive_Science-orange)](#认知科学基础)
 [![Deep Dive](https://img.shields.io/badge/深度文章-配图版-teal)](docs/article/cognitive-science-deep-dive.html)
 
-> 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。13 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
+> 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。14 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
 
 ---
 
@@ -50,7 +50,7 @@
 
 ---
 
-### 动态：13 个 Skills 如何协同运转
+### 动态：14 个 Skills 如何协同运转
 
 > 系统总览：五大阶段的完整认知生命周期，含 Subagents 隔离节点和 Rules 守门机制
 
@@ -165,6 +165,7 @@
 | `cognitive-review-brain-map` | 大脑地图/认知状态/系统状态 | 生成当前认知结构状态快照 | 元认知快照 |
 | `cognitive-version-snapshot` | 创建新版本/打快照/这次改动很大 | 为 L1 文档创建重大版本里程碑 | 长期记忆巩固 |
 | `cognitive-input-classifier` | 帮我判断/先分类/路由分类一下 | 输入路由分类器（认知更新 vs 任务执行）| 认知分类前置 |
+| `cognitive-work-alignment-check` | 检查工作与认知的对齐/认知根对齐/认知-工作自洽 | 验证工作产出是否可追溯到 L1.5原则/L1文档，识别「漂浮工作」| Flavell元认知监控 |
 
 ---
 

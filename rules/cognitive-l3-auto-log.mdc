@@ -85,6 +85,16 @@ alwaysApply: true
 
 ---
 
+## 示例对（2026-03-25 补充）
+
+**✅ 正确行为**：
+cognitive-capture-fragment 执行完毕 → 自动追加到系统日志.md：`[LOG-20260325-01] cognitive-capture-fragment | 记录碎片F-067「AI系统不需要时间盒约束」| L2碎片整合索引.md`
+
+**❌ 错误行为**：
+cognitive-capture-fragment 执行完毕 → 只告知用户「碎片已写入」，未追加任何系统日志记录，导致每日汇报无法追踪今日认知操作
+
+---
+
 ## 变更记录
 
 ### 2026-03-21 — alwaysApply: false → true（GAP-E4A 修复）
