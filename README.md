@@ -25,7 +25,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-20-blue)](#20-个-skill)
-[![Rules](https://img.shields.io/badge/Rules-4-green)](#4-条规则)
+[![Rules](https://img.shields.io/badge/Rules-6-green)](#6-条规则)
 [![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-个子智能体)
 [![Cognitive Science](https://img.shields.io/badge/Based_on-Cognitive_Science-orange)](#认知科学基础)
 [![Deep Dive](https://img.shields.io/badge/深度文章-配图版-teal)](docs/article/cognitive-science-deep-dive.html)
@@ -191,7 +191,7 @@
 
 ---
 
-## 4 条规则
+## 6 条规则
 
 | Rule | 类型 | 作用 |
 |------|------|------|
@@ -199,6 +199,14 @@
 | `cognitive-l3-auto-log` | alwaysApply | 每次 cognitive-* 操作后：自动追加系统日志 |
 | `cognitive-principle-check` | 条件触发 | 写完 L1 内容后：自动校验与 P1/P2 的张力 |
 | `fragment-before-direct-edit` | 条件触发 | 直接改 L1 前：提示「先记碎片还是直接改？」|
+| `cognitive-insight-guard` | alwaysApply | 每条用户消息后：语义判断是否包含洞见/视角纠正/设计原则，提示沉淀 |
+| `cognitive-principle-precheck` | alwaysApply | 任何判断性输出前：读 L1.5 原则，用作设计检查视角（非阻断）|
+
+> **两条新 Rule（v1.3）的设计背景**：
+> 解决「用户反复说同一个原则，AI 每次都不知道」的系统性问题。
+> `cognitive-insight-guard` 修复 Loop 3→Loop 2 的断裂（洞见消失）；
+> `cognitive-principle-precheck` 修复 Loop 2→Loop 3 的断裂（原则未调取）。
+> 两条 Rule 一起，让认知体系真正闭合。
 
 ---
 
