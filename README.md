@@ -24,13 +24,13 @@
 </p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-14-blue)](#14-个-skill)
+[![Skills](https://img.shields.io/badge/Skills-20-blue)](#20-个-skill)
 [![Rules](https://img.shields.io/badge/Rules-4-green)](#4-条规则)
 [![Agents](https://img.shields.io/badge/SubAgents-4-purple)](#4-个子智能体)
 [![Cognitive Science](https://img.shields.io/badge/Based_on-Cognitive_Science-orange)](#认知科学基础)
 [![Deep Dive](https://img.shields.io/badge/深度文章-配图版-teal)](docs/article/cognitive-science-deep-dive.html)
 
-> 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。14 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
+> 把人类大脑的层级记忆结构外化为 AI 可操作的知识体系。20 个 Skills + 4 个 Rules + 4 个 SubAgents，让 AI 智能体能够**构建、维护并自我迭代**用户的认知框架。
 
 ---
 
@@ -50,7 +50,7 @@
 
 ---
 
-### 动态：14 个 Skills 如何协同运转
+### 动态：20 个 Skills 如何协同运转
 
 > 系统总览：五大阶段的完整认知生命周期，含 Subagents 隔离节点和 Rules 守门机制
 
@@ -167,6 +167,17 @@
 | `cognitive-input-classifier` | 帮我判断/先分类/路由分类一下 | 输入路由分类器（认知更新 vs 任务执行）| 认知分类前置 |
 | `cognitive-work-alignment-check` | 检查工作与认知的对齐/认知根对齐/认知-工作自洽 | 验证工作产出是否可追溯到 L1.5原则/L1文档，识别「漂浮工作」| Flavell元认知监控 |
 
+### 扩展能力（6 种，v1.2 新增）
+
+| Skill | 触发词 / 调用方式 | 作用 | 认知科学 |
+|-------|-----------------|------|---------|
+| `cognitive-attend` | 检查这段话有没有认知信号/帮我识别洞见 | 主动检测对话中隐含的五类认知信号（洞见/联想/矛盾/反思/原则），路由给对应 Skill | 突显网络 SN；Corbetta 2002 |
+| `cognitive-associate` | 内部工具（被 cognitive-ask 和 cognitive-capture-fragment 调用）| 给定概念，在知识图谱中激活语义相邻的概念网络，返回 Top-5 邻居 | Collins & Loftus 1975 扩散激活 |
+| `cognitive-consolidate` | 后台调度（每7天）/ 人工：批量整合积压碎片 | 将积压的成熟L2碎片批量整合进L1，冲突类碎片记录待决策（Headless模式）| Wilson & McNaughton 1994 记忆巩固 |
+| `cognitive-calibrate` | 验证历史内容/校准知识置信度/哪些内容还没验证 | 追踪🟡AI生成内容是否事后得到验证，防止未验证推断长期被当事实 | Flavell 1979 元认知监控准确性 |
+| `cognitive-background-synthesizer` | 后台调度（每3天）/ 人工：执行后台合成 | 跨碎片关联分析，找隐性连接，生成合成报告（Headless模式）| Buckner 2008 DMN；Kounios 2014 顿悟 |
+| `cognitive-creative-synthesis` | 没有思路/换个角度想/帮我发散一下/跨领域看这个问题 | 从认知体系随机抽取跨领域概念，强制寻找结构相似性，生成非常规解法候选 | Beaty 2016 DMN+CEN协同；Mednick 1962 远距联想 |
+
 ---
 
 ## 4 个子智能体
@@ -263,6 +274,18 @@ cd cognitive-os && ./scripts/setup.sh /path/to/your-project
 # 6. 每日认知汇报
 "今天认知系统有什么更新？"
 → cognitive-daily-briefing 生成积压/更新/待处理报告
+
+# 7. 主动检测对话中的认知信号
+"帮我检查这段话有没有值得记录的"
+→ cognitive-attend 扫描 S1-S5 五类信号，路由给对应 Skill
+
+# 8. 思路瓶颈时的创造性发散
+"没有思路了，换个角度想想"
+→ cognitive-creative-synthesis 从认知体系随机抽取跨领域概念，强制找结构类比
+
+# 9. 验证 AI 推断内容的准确性（季度性使用）
+"哪些内容是 AI 推断的，还没验证过？"
+→ cognitive-calibrate 扫描 🟡 归因内容，逐条确认是否有实际证据
 ```
 
 ---
@@ -288,7 +311,16 @@ cognitive-os/
 │   ├── cognitive-consistency-check/SKILL.md
 │   ├── cognitive-reorganize/SKILL.md
 │   ├── cognitive-input-classifier/SKILL.md
-│   └── cognitive-version-snapshot/SKILL.md
+│   ├── cognitive-version-snapshot/SKILL.md
+│   ├── cognitive-work-alignment-check/SKILL.md
+│   │
+│   ├── # 扩展能力层（v1.2 新增，含 SN/DMN/联想/巩固/校准）
+│   ├── cognitive-attend/SKILL.md
+│   ├── cognitive-associate/SKILL.md
+│   ├── cognitive-consolidate/SKILL.md
+│   ├── cognitive-calibrate/SKILL.md
+│   ├── cognitive-background-synthesizer/SKILL.md
+│   └── cognitive-creative-synthesis/SKILL.md
 │
 ├── rules/                        # 4 个 Rules（alwaysApply 或条件触发）
 │   ├── cognitive-structure-write-guard.mdc
